@@ -1,0 +1,109 @@
+.navigaton ul {
+  display: flex;
+  width: 100vw;
+  padding-top: 5vw;
+}
+
+.navigaton ul li {
+  list-style: none;
+  width: 20%;
+  height: 10vh;
+  z-index: 2;
+  position: relative;
+}
+
+.navigaton ul li a {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+}
+
+.navigaton ul li a .icon {
+  position: relative;
+  display: block;
+  line-height: 10vh;
+  font-size: 1.5em;
+  transition: 0.5s;
+  color: var(--bs-gray-100);
+}
+
+.navigaton ul li.active a .icon {
+  transform: translateY(-25px);
+  color: #0b0b0b;
+}
+
+.navigaton ul li a .text {
+  position: absolute;
+  /*background: #2196f3;*/
+  color: var(--bs-gray-100);
+  padding: 2px 7px;
+  border-radius: 12px;
+  font-weight: 400;
+  font-size: 0.75em;
+  letter-spacing: 0.05em;
+  transition: 0.5s;
+  opacity: 0;
+  transform: translateY(15px);
+}
+
+.navigaton ul li.active a .text {
+  transform: translateY(10px);
+  opacity: 1;
+}
+
+.indicator {
+  position: absolute;
+  top: -3.5vh;
+  width: 15vw;
+  height: 15vw;
+  background: #29fd53;
+  border-radius: 50%;
+  z-index: 1;
+  transition: 0.5s;
+  border: solid;
+  border-color: #181818;
+  border-width: 5px;
+}
+
+.navigaton ul li:nth-child(1).active ~ .indicator {
+  transform: translateX(calc(20vw*0));
+  margin-left: 1vw;
+}
+
+.navigaton ul li:nth-child(2).active ~ .indicator {
+  transform: translateX(calc(20vw*1));
+  margin-left: -2vw;
+}
+
+.navigaton ul li:nth-child(3).active ~ .indicator {
+  transform: translateX(calc(20vw*2));
+  margin-left: -5.5vw;
+}
+
+.navigaton ul li:nth-child(4).active ~ .indicator {
+  transform: translateX(calc(20vw*3));
+  margin-left: -8.5vw;
+}
+
+.navigaton ul li:nth-child(5).active ~ .indicator {
+  transform: translateX(calc(20vw*4));
+  margin-left: -12vw;
+}
+
+ul {
+  padding: 0px;
+}
+
+button, input, optgroup, select, textarea {
+  margin: 0;
+  font-family: Poppins, sans-serif;
+  font-size: inherit;
+  line-height: inherit;
+  color: rgb(255,255,255);
+}
+

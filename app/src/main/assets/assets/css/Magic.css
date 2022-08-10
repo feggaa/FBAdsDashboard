@@ -1,0 +1,10 @@
+.Page {
+  visibility: hidden;
+  display: none;
+}
+
+.Page.active {
+  visibility: visible;
+  display: initial;
+}
+

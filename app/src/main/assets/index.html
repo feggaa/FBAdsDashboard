@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>AdsManager</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins&amp;display=swap">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/line-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/Bootstrap-Calendar.css">
+    <link rel="stylesheet" href="assets/css/Magic.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/untitled.css">
+</head>
+
+<body style="background: #181818;">
+    <div id="mainPage" style="height: 100vh;width: 100vw;max-width: 100vw;min-width: 100vw;display: flex;overflow: auto;" onscroll="CallScroll(this)">
+        <div id="li-Clintes-Page" class="Page active" style="width: 100vw;min-width: 100vw;max-width: 100vw;">
+            <div class="modal fade" role="dialog" tabindex="-1" id="mAddClinte">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body" style="background: #202020;border-style: none;">
+                            <h4 class="modal-title" style="color: rgb(255,255,255);margin-bottom: 25px;">Add New Clinte</h4><input type="text" id="addClinte-Name" style="padding-bottom: 1px;padding-right: 0px;width: 100%;border-style: none;border-radius: 4px;padding-left: 10px;background: rgb(60,67,71);height: 36px;color: rgb(255,255,255);font-family: Poppins, sans-serif;" placeholder="Clinte Name" title="Hi"><input type="text" id="addClinte-Phone" style="padding-bottom: 1px;padding-right: 0px;width: 100%;border-style: none;margin-top: 5px;margin-bottom: 5px;border-radius: 4px;padding-left: 10px;background: rgb(60,67,71);height: 36px;" placeholder="Phone Number" inputmode="tel"><input type="text" id="addClinte-Address" style="padding-bottom: 1px;padding-right: 0px;width: 100%;border-style: none;margin-bottom: 5px;border-radius: 4px;padding-left: 10px;background: rgb(60,67,71);height: 36px;" placeholder="Address"><input type="text" id="addClinte-Contact" style="padding-bottom: 1px;padding-right: 0px;width: 100%;border-style: none;border-radius: 4px;padding-left: 10px;background: rgb(60,67,71);height: 36px;" placeholder="Contact">
+                        </div>
+                        <div class="modal-footer" style="background: #181818;border-style: none;">
+                            <div class="d-flex" style="width: 100vw;height: 34px;"><button class="btn btn-outline-light" type="button" style="border-style: none;float: right;position: absolute;right: 90px;" onclick="StopScanLan()"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-x-lg" style="margin-top: -2px;margin-right: 3px;">
+                                        <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"></path>
+                                        <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"></path>
+                                    </svg>Close</button><button class="btn btn-outline-primary" type="button" style="border-style: none;color: rgb(245,245,245);float: right;position: absolute;right: 10px;" onclick="SaveNewClinte()"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-save2-fill" style="margin-right: 3px;margin-top: -2px;">
+                                        <path d="M8.5 1.5A1.5 1.5 0 0 1 10 0h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h6c-.314.418-.5.937-.5 1.5v6h-2a.5.5 0 0 0-.354.854l2.5 2.5a.5.5 0 0 0 .708 0l2.5-2.5A.5.5 0 0 0 10.5 7.5h-2v-6z"></path>
+                                    </svg>Save</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-end" style="width: 100%;padding-right: 10px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="visually-hidden" id="delDevID" style="color: #e74948;font-size: 40px;" onclick="selectedDelete()">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M17 5V4C17 2.89543 16.1046 2 15 2H9C7.89543 2 7 2.89543 7 4V5H4C3.44772 5 3 5.44772 3 6C3 6.55228 3.44772 7 4 7H5V18C5 19.6569 6.34315 21 8 21H16C17.6569 21 19 19.6569 19 18V7H20C20.5523 7 21 6.55228 21 6C21 5.44772 20.5523 5 20 5H17ZM15 4H9V5H15V4ZM17 7H7V18C7 18.5523 7.44772 19 8 19H16C16.5523 19 17 18.5523 17 18V7Z" fill="currentColor"></path>
+                    <path d="M9 9H11V17H9V9Z" fill="currentColor"></path>
+                    <path d="M13 9H15V17H13V9Z" fill="currentColor"></path>
+                </svg><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" id="btAdd-Clinte" style="color: #00baff;font-size: 40px;" onclick="btAddClinte()">
+                    <path d="M12 4C11.4477 4 11 4.44772 11 5V11H5C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13H11V19C11 19.5523 11.4477 20 12 20C12.5523 20 13 19.5523 13 19V13H19C19.5523 13 20 12.5523 20 12C20 11.4477 19.5523 11 19 11H13V5C13 4.44772 12.5523 4 12 4Z" fill="currentColor"></path>
+                </svg></div>
+            <div class="d-flex align-items-center" style="width: 100vw;">
+                <h1 class="text-start" style="user-select: none;color: #dddddd;margin-top: 10px;padding-left: 10px;">Clintes</h1><i class="fa fa-search" style="color: rgb(255,255,255);transform: translate(13px) rotate(80deg);z-index:1"></i><input type="text" placeholder="Search" style="padding-left: 25px;transform: translate(-10px);border-width: 0px;border-style: none;background: rgb(60,67,71);border-radius: 25px;height: 36px;color: rgb(255,255,255);font-family: Poppins, sans-serif;width: 95%;">
+            </div>
+            <div style="position: relative">
+                <ul class="list-group" id="ClinteListID" style="padding-right: 10px;padding-left: 10px;">
+                    <li class="list-group-item d-flex ListItem" style="margin-bottom: 10px;background: #202020;border-radius: 6px;border-style: none;">
+                        <div style="width: 10%;margin: auto;"><i class="fas fa-user" id="icoOS-3" style="font-size: 30px;margin-left: -5px;color: #04b8fd;"></i></div>
+                        <div style="width: 90%;">
+                            <h4 class="d-flex justify-content-start align-items-center" id="PC-3" style="margin-bottom: 0px;color: #ffffff;">Hisham Alger</h4>
+                            <div class="d-flex align-items-center">
+                                <h6 id="textMac-3" style="font-size: 10px;color: #c7cacd;">Last Payment : 21/05/2022</h6>
+                                <h6 id="textIP-3" style="font-size: 10px;color: #c7cacd;margin-left: 15px;">10000 Da</h6>
+                                <h6 id="textIP-1" style="margin-left: 15px;color: var(--bs-red);font-size: 10px;">10000 Da</h6>
+                            </div>
+                        </div><i class="fab fa-facebook-messenger d-flex float-start justify-content-end" style="color: #2dad4a;margin-left: 5px;font-size: 24px;"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="li-Pages-Page" class="Page active" style="width: 100vw;min-width: 100vw;max-width: 100vw;">
+            <div class="modal fade" role="dialog" tabindex="-1" id="mAddPage">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body" style="background: #202020;border-style: none;">
+                            <h4 class="modal-title" style="color: rgb(255,255,255);margin-bottom: 25px;">Add New Page</h4>
+                            <div style="justify-content: center;display: flex;padding-bottom: 10px;"><img class="rounded-circle border border-2 border-secondary" id="Page-Logo" src="assets/img/Facebook-logo.png" style="width: 128px;"><span class="spinner-border spinner-border-sm" role="status" id="spinnerLogoPage" style="position: absolute;color: rgb(255,255,255);margin-left: 58px;"></span></div>
+                            <div class="dropdown"><button class="btn btn-light dropdown-toggle text-start" aria-expanded="false" data-bs-toggle="dropdown" id="btSelectClinte" type="button" style="width: 100%;background: rgb(60,67,71);border-style: none;color: rgb(252,251,251);" data-adminid="0">Select Clinte&nbsp;</button>
+                                <div class="dropdown-menu" id="ClinteMenu" style="width: 100%;"><a class="dropdown-item" href="#" data-id="0"><img src="assets/img/nodejs_logo.png" style="width: 40px;height: 40px;border-radius: 50%;">&nbsp; Hisham Alger</a><a class="dropdown-item" href="#"><img src="assets/img/windows.png" style="width: 40px;height: 40px;border-radius: 50%;">&nbsp; Hisham Alger</a><a class="dropdown-item" href="#"><img src="assets/img/c-logo-icon-28389.png" style="width: 40px;height: 40px;border-radius: 50%;">&nbsp; Hisham Alger</a></div>
+                            </div><input type="text" id="addPage-Link" style="margin-right: 126px;margin-bottom: 0px;padding-bottom: 1px;padding-right: 0px;width: 100%;margin-top: 5px;background: rgb(60,67,71);border-style: none;border-radius: 4px;height: 36px;padding-left: 10px;" placeholder="Page Link" oninput="initPage()">
+                            <div style="display: grid;width: 100%;"><input type="text" id="addPage-Name" style="margin-right: 126px;margin-bottom: 0px;padding-bottom: 1px;padding-right: 0px;width: 100%;margin-top: 5px;background: rgb(60,67,71);border-style: none;height: 36px;border-radius: 4px;padding-left: 10px;" placeholder="Page Name"><span class="spinner-border spinner-border-sm" role="status" id="spinnerNamePage" style="color: rgb(255,255,255);position: absolute;right: 7vw;margin-top: 15px;"></span></div>
+                        </div>
+                        <div class="modal-footer" style="background: #181818;border-style: none;"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="button" onclick="SaveNewPage()">Save</button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-end" style="width: 100%;padding-right: 10px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="visually-hidden" id="delDevID-1" style="color: #e74948;font-size: 40px;" onclick="selectedDelete()">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M17 5V4C17 2.89543 16.1046 2 15 2H9C7.89543 2 7 2.89543 7 4V5H4C3.44772 5 3 5.44772 3 6C3 6.55228 3.44772 7 4 7H5V18C5 19.6569 6.34315 21 8 21H16C17.6569 21 19 19.6569 19 18V7H20C20.5523 7 21 6.55228 21 6C21 5.44772 20.5523 5 20 5H17ZM15 4H9V5H15V4ZM17 7H7V18C7 18.5523 7.44772 19 8 19H16C16.5523 19 17 18.5523 17 18V7Z" fill="currentColor"></path>
+                    <path d="M9 9H11V17H9V9Z" fill="currentColor"></path>
+                    <path d="M13 9H15V17H13V9Z" fill="currentColor"></path>
+                </svg><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" id="btAdd-Page" style="color: #00baff;font-size: 40px;" onclick="btAddPage()">
+                    <path d="M12 4C11.4477 4 11 4.44772 11 5V11H5C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13H11V19C11 19.5523 11.4477 20 12 20C12.5523 20 13 19.5523 13 19V13H19C19.5523 13 20 12.5523 20 12C20 11.4477 19.5523 11 19 11H13V5C13 4.44772 12.5523 4 12 4Z" fill="currentColor"></path>
+                </svg></div>
+            <h1 class="text-start" style="user-select: none;color: #dddddd;width: 100%;margin-top: 10px;padding-left: 10px;">Pages</h1>
+            <div style="position: relative">
+                <ul class="list-group" id="PageListID" style="padding-right: 10px;padding-left: 10px;">
+                    <li class="list-group-item d-flex ListItem" style="margin-bottom: 10px;background: #202020;border-radius: 6px;border-style: none;padding-bottom: 3px;">
+                        <div style="width: 10%;margin: auto;margin-right: 10px;"><img src="assets/img/211415300_109009964775999_4372726074327712704_n.jpg" style="width: 32px;border-radius: 50%;margin-left: -5px;"></div>
+                        <div style="width: 90%;">
+                            <h4 class="d-flex justify-content-start align-items-center" id="PC-1" style="margin-bottom: 0px;color: #ffffff;">Literie Firachi</h4>
+                            <div class="d-flex align-items-center" style="padding-top: 5px;">
+                                <h6 id="textMac-1" style="font-size: 10px;color: #c7cacd;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-thumb-up" style="color: rgb(255,255,255);margin-right: 3px;margin-top: -2px;">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M7 11v8a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1v-7a1 1 0 0 1 1 -1h3a4 4 0 0 0 4 -4v-1a2 2 0 0 1 4 0v5h3a2 2 0 0 1 2 2l-1 5a2 3 0 0 1 -2 2h-7a3 3 0 0 1 -3 -3"></path>
+                                    </svg><span>2509</span>&nbsp;people like this</h6>
+                                <h6 style="font-size: 10px;color: #c7cacd;margin-left: 15px;">Hisham Alger</h6>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex ListItem" style="margin-bottom: 10px;background: #202020;border-radius: 6px;border-style: none;">
+                        <div style="width: 10%;margin: auto;"><i class="fab fa-windows" id="icoOS-4" style="font-size: 30px;margin-left: -5px;color: #04b8fd;"></i></div>
+                        <div style="width: 90%;">
+                            <h4 class="d-flex justify-content-start align-items-center" id="PC-4" style="margin-bottom: 0px;color: #ffffff;">DESKTOP-4N2JUB1</h4>
+                            <div class="d-flex align-items-center">
+                                <h6 id="textMac-4" style="font-size: 10px;color: #c7cacd;">48:51:B7:41:5B:6D</h6>
+                                <h6 id="textIP-4" style="font-size: 10px;color: #c7cacd;margin-left: 15px;">192.168.1.191</h6>
+                            </div>
+                        </div><i class="fas fa-circle d-flex float-start justify-content-end" style="color: #2dad4a;margin-left: 5px;font-size: 16px;"></i>
+                    </li>
+                    <li class="list-group-item d-flex ListItem" style="margin-bottom: 10px;background: #202020;border-radius: 6px;border-style: none;">
+                        <div style="width: 10%;margin: auto;"><i class="fab fa-windows" id="icoOS-6" style="font-size: 30px;margin-left: -5px;color: #04b8fd;"></i></div>
+                        <div style="width: 90%;">
+                            <h4 class="d-flex justify-content-start align-items-center" id="PC-6" style="margin-bottom: 0px;color: #ffffff;">DESKTOP-4N2JUB1</h4>
+                            <div class="d-flex align-items-center">
+                                <h6 id="textMac-6" style="font-size: 10px;color: #c7cacd;">48:51:B7:41:5B:6D</h6>
+                                <h6 id="textIP-6" style="font-size: 10px;color: #c7cacd;margin-left: 15px;">192.168.1.191</h6>
+                            </div>
+                        </div><i class="fas fa-circle d-flex float-start justify-content-end" style="color: #2dad4a;margin-left: 5px;font-size: 16px;"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="li-Home-Page" class="Page active" style="width: 100vw;min-width: 100vw;max-width: 100vw;">
+            <div class="modal fade" role="dialog" tabindex="-1" id="mAddBoost">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body" style="background: #202020;border-style: none;">
+                            <h4 class="modal-title" style="color: rgb(255,255,255);margin-bottom: 25px;">Add New Boost</h4>
+                            <div class="dropdown"><button class="btn btn-light dropdown-toggle text-start" aria-expanded="false" data-bs-toggle="dropdown" id="btSelectPage" type="button" style="width: 100%;background: rgb(60,67,71);border-style: none;color: rgb(252,251,251);" data-pageid="0">Select Page&nbsp;</button>
+                                <div class="dropdown-menu" id="PageMenu" style="width: 100%;"><a class="dropdown-item" href="#" data-id="0"><img src="assets/img/nodejs_logo.png" style="width: 40px;height: 40px;border-radius: 50%;">&nbsp; Hisham Alger</a><a class="dropdown-item" href="#"><img src="assets/img/windows.png" style="width: 40px;height: 40px;border-radius: 50%;">&nbsp; Hisham Alger</a><a class="dropdown-item" href="#"><img src="assets/img/c-logo-icon-28389.png" style="width: 40px;height: 40px;border-radius: 50%;">&nbsp; Hisham Alger</a></div>
+                            </div><input type="text" id="BoostClinte" style="margin-right: 126px;margin-bottom: 0px;padding-bottom: 1px;padding-right: 0px;width: 100%;margin-top: 5px;background: rgb(60,67,71);border-style: none;border-radius: 4px;height: 36px;padding-left: 10px;" placeholder="Clinte">
+                            <div class="container">
+                                <div class="row row-cols-2">
+                                    <div class="col-md-6" style="padding: 0px;width: 60%;"><input type="text" id="Budget" style="margin-right: 126px;margin-bottom: 0px;padding-bottom: 1px;padding-right: 0px;margin-top: 5px;background: rgb(60,67,71);border-style: none;border-radius: 4px;height: 36px;padding-left: 10px;width: 100%;float: left;border-bottom-right-radius: 0px;border-top-right-radius: 0px;" placeholder="Budget" inputmode="numeric" oninput="BudgetOnInput()"></div>
+                                    <div class="col-md-6" style="padding: 0px;width: 40%;"><input type="text" id="BudgetDoller" style="margin-right: 126px;margin-bottom: 0px;padding-bottom: 1px;padding-right: 0px;margin-top: 5px;background: rgb(60,67,71);border-style: none;border-radius: 4px;height: 36px;padding-left: 10px;width: 100%;float: left;border-top-left-radius: 0px;border-bottom-left-radius: 0px;color: rgb(85,222,132);" placeholder="$ Doller" readonly=""></div>
+                                </div>
+                            </div>
+                            <div style="width: 100%;"></div>
+                            <div><input type="date" id="DateEnd" style="margin-right: 126px;margin-bottom: 0px;padding-bottom: 1px;padding-right: 10px;width: 100%;margin-top: 5px;background: rgb(60,67,71);border-style: none;border-radius: 4px;height: 36px;padding-left: 10px;" placeholder="Days"></div>
+                        </div>
+                        <div class="modal-footer" style="background: #181818;border-style: none;"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="button" onclick="SaveNewBoost()">Save</button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-end" style="width: 100%;padding-right: 10px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="visually-hidden" id="delDevID-4" style="color: #e74948;font-size: 40px;" onclick="selectedDelete()">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M17 5V4C17 2.89543 16.1046 2 15 2H9C7.89543 2 7 2.89543 7 4V5H4C3.44772 5 3 5.44772 3 6C3 6.55228 3.44772 7 4 7H5V18C5 19.6569 6.34315 21 8 21H16C17.6569 21 19 19.6569 19 18V7H20C20.5523 7 21 6.55228 21 6C21 5.44772 20.5523 5 20 5H17ZM15 4H9V5H15V4ZM17 7H7V18C7 18.5523 7.44772 19 8 19H16C16.5523 19 17 18.5523 17 18V7Z" fill="currentColor"></path>
+                    <path d="M9 9H11V17H9V9Z" fill="currentColor"></path>
+                    <path d="M13 9H15V17H13V9Z" fill="currentColor"></path>
+                </svg><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" id="btAdd-Boost" style="color: #00baff;font-size: 40px;" onclick="btAddBoost()">
+                    <path d="M12 4C11.4477 4 11 4.44772 11 5V11H5C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13H11V19C11 19.5523 11.4477 20 12 20C12.5523 20 13 19.5523 13 19V13H19C19.5523 13 20 12.5523 20 12C20 11.4477 19.5523 11 19 11H13V5C13 4.44772 12.5523 4 12 4Z" fill="currentColor"></path>
+                </svg></div>
+            <h1 class="text-start" style="user-select: none;color: #dddddd;width: 100%;margin-top: 10px;padding-left: 10px;">Activities</h1>
+            <div style="width: 100%;padding-left: 5vw;padding-right: 5vw;display: flex;">
+                <div id="myChart" style="width: 43vw;height: 25vw;background: #292929;margin-right: 4vw;border-radius: 10px;padding-left: 10px;padding-bottom: 10px;">
+                    <div><span style="color: rgb(136,138,140);">last 30 Days</span></div>
+                    <div><span id="TotalDinar" style="color: rgb(255,255,255);font-family: Poppins, sans-serif;">1500000 Da</span></div>
+                    <div><span id="TotalDollar" style="color: rgb(85,222,132);font-family: Poppins, sans-serif;font-weight: bold;">250$</span></div>
+                </div>
+                <div style="width: 43vw;height: 25vw;background: #292929;border-radius: 10px;padding-bottom: 3px;">
+                    <div id="HomeChart" class="chart-area" style="height: 100%;width: 100%;border-bottom-right-radius: 10px;border-bottom-left-radius: 10px;"><canvas data-bss-chart="{&quot;type&quot;:&quot;line&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Jan&quot;,&quot;Feb&quot;,&quot;Mar&quot;,&quot;Apr&quot;,&quot;May&quot;,&quot;Jun&quot;,&quot;Jul&quot;,&quot;Aug&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;Earnings&quot;,&quot;fill&quot;:true,&quot;data&quot;:[&quot;1500&quot;,&quot;1500&quot;,&quot;1500&quot;,&quot;2000&quot;,&quot;1500&quot;,&quot;1500&quot;,&quot;1500&quot;,&quot;2500&quot;],&quot;backgroundColor&quot;:&quot;rgba(78, 115, 223, 0.05)&quot;,&quot;borderColor&quot;:&quot;rgb(5,130,255)&quot;,&quot;borderWidth&quot;:&quot;2&quot;}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false,&quot;labels&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontSize&quot;:5},&quot;reverse&quot;:false},&quot;title&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontSize&quot;:0},&quot;scales&quot;:{&quot;xAxes&quot;:[{&quot;gridLines&quot;:{&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:false,&quot;borderDash&quot;:[&quot;0&quot;],&quot;zeroLineBorderDash&quot;:[&quot;0&quot;],&quot;drawOnChartArea&quot;:false},&quot;ticks&quot;:{&quot;fontSize&quot;:&quot;0&quot;,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;beginAtZero&quot;:true}}],&quot;yAxes&quot;:[{&quot;gridLines&quot;:{&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:false,&quot;borderDash&quot;:[&quot;0&quot;],&quot;zeroLineBorderDash&quot;:[&quot;0&quot;],&quot;drawOnChartArea&quot;:false},&quot;ticks&quot;:{&quot;fontSize&quot;:&quot;0&quot;,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;beginAtZero&quot;:true}}]}}}"></canvas></div>
+                </div>
+            </div>
+            <div id="ListActivty" style="padding-right: 5vw;padding-left: 5vw;padding-top: 10px;">
+                <ul class="list-group" id="BoostList">
+                    <li class="list-group-item" style="background: #292929;margin-bottom: 5px;display: flex;border-radius: 5px;"><i class="fa fa-bullhorn d-flex justify-content-center align-items-center" style="color: rgb(5,130,255);font-size: 24px;"></i>
+                        <div style="width: 100%;padding-left: 10px;">
+                            <div><span style="color: rgb(255,255,255);margin-right: 5px;">Boost</span><span style="color: rgb(255,255,255);width: 100%;">Firashi</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1em" height="1em" fill="currentColor" style="color: rgb(90,234,23);font-size: 12px;float: right;margin-top: 5px;">
+                                    <!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. -->
+                                    <path d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256z"></path>
+                                </svg></div>
+                            <div style="display: initial;"><span style="color: rgb(255,255,255);font-size: 12px;float: left;">13/05/2022</span><span style="color: rgb(56,242,63);font-size: 12px;float: right;">40$</span></div>
+                        </div>
+                    </li>
+                    <li class="list-group-item" style="background: #292929;margin-bottom: 5px;display: flex;border-radius: 5px;"><i class="fa fa-money d-flex justify-content-center align-items-center" style="color: rgb(5,130,255);font-size: 24px;"></i>
+                        <div style="width: 100%;padding-left: 10px;">
+                            <div><span style="color: rgb(255,255,255);margin-right: 5px;">Payment</span><span style="color: rgb(255,255,255);">Hisham Alger</span></div>
+                            <div style="display: initial;"><span style="color: rgb(255,255,255);font-size: 12px;float: left;">13/05/2022</span><span style="color: rgb(56,242,63);font-size: 12px;float: right;">20000 Da</span></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="li-Payments-Page" class="Page active" style="width: 100vw;min-width: 100vw;max-width: 100vw;">
+            <div class="modal fade" role="dialog" tabindex="-1" id="mAddPayment">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body" style="background: #202020;border-style: none;">
+                            <h4 class="modal-title" style="color: rgb(255,255,255);margin-bottom: 25px;">Add New Payment</h4>
+                            <div class="dropdown"><button class="btn btn-light dropdown-toggle text-start" aria-expanded="false" data-bs-toggle="dropdown" id="btSelectClinte-Pay" type="button" style="width: 100%;background: rgb(60,67,71);border-style: none;color: rgb(252,251,251);" data-adminid="0">Select Clinte&nbsp;</button>
+                                <div class="dropdown-menu" id="ClinteMenu-Pay" style="width: 100%;"><a class="dropdown-item" href="#" data-id="0"><img src="assets/img/nodejs_logo.png" style="width: 40px;height: 40px;border-radius: 50%;">&nbsp; Hisham Alger</a><a class="dropdown-item" href="#"><img src="assets/img/windows.png" style="width: 40px;height: 40px;border-radius: 50%;">&nbsp; Hisham Alger</a><a class="dropdown-item" href="#"><img src="assets/img/c-logo-icon-28389.png" style="width: 40px;height: 40px;border-radius: 50%;">&nbsp; Hisham Alger</a></div>
+                            </div><input type="text" id="PayAmount" style="margin-right: 126px;margin-bottom: 0px;padding-bottom: 1px;padding-right: 0px;width: 100%;margin-top: 5px;background: rgb(60,67,71);border-style: none;border-radius: 4px;height: 36px;padding-left: 10px;" placeholder="Amount">
+                        </div>
+                        <div class="modal-footer" style="background: #181818;border-style: none;"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="button" onclick="SaveNewPayament()">Save</button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-end" style="width: 100%;padding-right: 10px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="visually-hidden" id="delDevID-2" style="color: #e74948;font-size: 40px;" onclick="selectedDelete()">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M17 5V4C17 2.89543 16.1046 2 15 2H9C7.89543 2 7 2.89543 7 4V5H4C3.44772 5 3 5.44772 3 6C3 6.55228 3.44772 7 4 7H5V18C5 19.6569 6.34315 21 8 21H16C17.6569 21 19 19.6569 19 18V7H20C20.5523 7 21 6.55228 21 6C21 5.44772 20.5523 5 20 5H17ZM15 4H9V5H15V4ZM17 7H7V18C7 18.5523 7.44772 19 8 19H16C16.5523 19 17 18.5523 17 18V7Z" fill="currentColor"></path>
+                    <path d="M9 9H11V17H9V9Z" fill="currentColor"></path>
+                    <path d="M13 9H15V17H13V9Z" fill="currentColor"></path>
+                </svg><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" id="addDevID-2" style="color: #00baff;font-size: 40px;" onclick="btAddPayment()">
+                    <path d="M12 4C11.4477 4 11 4.44772 11 5V11H5C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13H11V19C11 19.5523 11.4477 20 12 20C12.5523 20 13 19.5523 13 19V13H19C19.5523 13 20 12.5523 20 12C20 11.4477 19.5523 11 19 11H13V5C13 4.44772 12.5523 4 12 4Z" fill="currentColor"></path>
+                </svg></div>
+            <h1 class="text-start" style="user-select: none;color: #dddddd;width: 100%;margin-top: 10px;padding-left: 10px;">Payments</h1>
+            <div style="position: relative">
+                <ul class="list-group" id="PaymentListID" style="padding-right: 10px;padding-left: 10px;">
+                    <li class="list-group-item d-flex ListItem" style="margin-bottom: 10px;background: #202020;border-radius: 6px;border-style: none;padding-left: 0px;">
+                        <div style="width: 10%;margin: auto;"></div>
+                        <div style="width: 90%;">
+                            <h4 class="d-flex justify-content-start align-items-center" id="PC-7" style="margin-bottom: 0px;color: #ffffff;">20000 Da</h4>
+                            <div class="d-flex align-items-center">
+                                <h6 id="textMac-7" style="font-size: 10px;color: #c7cacd;">2022/11/05</h6>
+                                <h6 id="textIP-7" style="font-size: 10px;color: #c7cacd;margin-left: 15px;">Hisham Alger</h6>
+                            </div>
+                        </div><i class="fas fa-circle d-flex float-start justify-content-end" style="color: #2dad4a;margin-left: 5px;font-size: 16px;"></i>
+                    </li>
+                    <li class="list-group-item d-flex ListItem" style="margin-bottom: 10px;background: #202020;border-radius: 6px;border-style: none;padding-left: 0px;">
+                        <div style="width: 10%;margin: auto;"></div>
+                        <div style="width: 90%;">
+                            <h4 class="d-flex justify-content-start align-items-center" id="PC-8" style="margin-bottom: 0px;color: #ffffff;">DESKTOP-4N2JUB1</h4>
+                            <div class="d-flex align-items-center">
+                                <h6 id="textMac-8" style="font-size: 10px;color: #c7cacd;">48:51:B7:41:5B:6D</h6>
+                                <h6 id="textIP-8" style="font-size: 10px;color: #c7cacd;margin-left: 15px;">192.168.1.191</h6>
+                            </div>
+                        </div><i class="fas fa-circle d-flex float-start justify-content-end" style="color: #2dad4a;margin-left: 5px;font-size: 16px;"></i>
+                    </li>
+                    <li class="list-group-item d-flex ListItem" style="margin-bottom: 10px;background: #202020;border-radius: 6px;border-style: none;padding-left: 0px;">
+                        <div style="width: 10%;margin: auto;"></div>
+                        <div style="width: 90%;">
+                            <h4 class="d-flex justify-content-start align-items-center" id="PC-9" style="margin-bottom: 0px;color: #ffffff;">DESKTOP-4N2JUB1</h4>
+                            <div class="d-flex align-items-center">
+                                <h6 id="textMac-9" style="font-size: 10px;color: #c7cacd;">48:51:B7:41:5B:6D</h6>
+                                <h6 id="textIP-9" style="font-size: 10px;color: #c7cacd;margin-left: 15px;">192.168.1.191</h6>
+                            </div>
+                        </div><i class="fas fa-circle d-flex float-start justify-content-end" style="color: #2dad4a;margin-left: 5px;font-size: 16px;"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="li-Settings-Page" class="Page active" style="width: 100vw;min-width: 100vw;max-width: 100vw;">
+            <div class="text-end" style="width: 100%;padding-right: 10px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="visually-hidden" id="delDevID-3" style="color: #e74948;font-size: 40px;" onclick="selectedDelete()">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M17 5V4C17 2.89543 16.1046 2 15 2H9C7.89543 2 7 2.89543 7 4V5H4C3.44772 5 3 5.44772 3 6C3 6.55228 3.44772 7 4 7H5V18C5 19.6569 6.34315 21 8 21H16C17.6569 21 19 19.6569 19 18V7H20C20.5523 7 21 6.55228 21 6C21 5.44772 20.5523 5 20 5H17ZM15 4H9V5H15V4ZM17 7H7V18C7 18.5523 7.44772 19 8 19H16C16.5523 19 17 18.5523 17 18V7Z" fill="currentColor"></path>
+                    <path d="M9 9H11V17H9V9Z" fill="currentColor"></path>
+                    <path d="M13 9H15V17H13V9Z" fill="currentColor"></path>
+                </svg><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" id="addDevID-3" style="color: #00baff;font-size: 40px;" onclick="StartScanLan()">
+                    <path d="M12 4C11.4477 4 11 4.44772 11 5V11H5C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13H11V19C11 19.5523 11.4477 20 12 20C12.5523 20 13 19.5523 13 19V13H19C19.5523 13 20 12.5523 20 12C20 11.4477 19.5523 11 19 11H13V5C13 4.44772 12.5523 4 12 4Z" fill="currentColor"></path>
+                </svg></div>
+            <h1 class="text-start" style="user-select: none;color: #dddddd;width: 100%;margin-top: 10px;padding-left: 10px;">Settings</h1>
+            <div style="position: relative">
+                <ul class="list-group" id="HomeListID-3" style="padding-right: 10px;padding-left: 10px;">
+                    <li class="list-group-item d-flex ListItem" style="margin-bottom: 10px;background: #202020;border-radius: 6px;border-style: none;">
+                        <div style="width: 10%;margin: auto;"><i class="fab fa-windows" id="icoOS-10" style="font-size: 30px;margin-left: -5px;color: #04b8fd;"></i></div>
+                        <div style="width: 90%;">
+                            <h4 class="d-flex justify-content-start align-items-center" id="PC-10" style="margin-bottom: 0px;color: #ffffff;">Literie Firachi</h4>
+                            <div class="d-flex align-items-center">
+                                <h6 id="textMac-10" style="font-size: 10px;color: #c7cacd;">48:51:B7:41:5B:6D</h6>
+                                <h6 id="textIP-10" style="font-size: 10px;color: #c7cacd;margin-left: 15px;">192.168.1.191</h6>
+                            </div>
+                        </div><i class="fas fa-circle d-flex float-start justify-content-end" style="color: #2dad4a;margin-left: 5px;font-size: 16px;"></i>
+                    </li>
+                    <li class="list-group-item d-flex ListItem" style="margin-bottom: 10px;background: #202020;border-radius: 6px;border-style: none;">
+                        <div style="width: 10%;margin: auto;"><i class="fab fa-windows" id="icoOS-11" style="font-size: 30px;margin-left: -5px;color: #04b8fd;"></i></div>
+                        <div style="width: 90%;">
+                            <h4 class="d-flex justify-content-start align-items-center" id="PC-11" style="margin-bottom: 0px;color: #ffffff;">DESKTOP-4N2JUB1</h4>
+                            <div class="d-flex align-items-center">
+                                <h6 id="textMac-11" style="font-size: 10px;color: #c7cacd;">48:51:B7:41:5B:6D</h6>
+                                <h6 id="textIP-11" style="font-size: 10px;color: #c7cacd;margin-left: 15px;">192.168.1.191</h6>
+                            </div>
+                        </div><i class="fas fa-circle d-flex float-start justify-content-end" style="color: #2dad4a;margin-left: 5px;font-size: 16px;"></i>
+                    </li>
+                    <li class="list-group-item d-flex ListItem" style="margin-bottom: 10px;background: #202020;border-radius: 6px;border-style: none;">
+                        <div style="width: 10%;margin: auto;"><i class="fab fa-windows" id="icoOS-12" style="font-size: 30px;margin-left: -5px;color: #04b8fd;"></i></div>
+                        <div style="width: 90%;">
+                            <h4 class="d-flex justify-content-start align-items-center" id="PC-12" style="margin-bottom: 0px;color: #ffffff;">DESKTOP-4N2JUB1</h4>
+                            <div class="d-flex align-items-center">
+                                <h6 id="textMac-12" style="font-size: 10px;color: #c7cacd;">48:51:B7:41:5B:6D</h6>
+                                <h6 id="textIP-12" style="font-size: 10px;color: #c7cacd;margin-left: 15px;">192.168.1.191</h6>
+                            </div>
+                        </div><i class="fas fa-circle d-flex float-start justify-content-end" style="color: #2dad4a;margin-left: 5px;font-size: 16px;"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div><i class="la la-star visually-hidden invisible"></i>
+    <div id="navigatonbar" class="navigaton" style="position: fixed;width: 90vw;height: 8vh;background: #292929;box-sizing: border-box;font-family: Poppins, sans-serif;display: flex;justify-content: center;align-items: center;border-radius: 6px;margin-left: 5vw;padding: 3vw;bottom: 10px;"><ul>
+    <li class="list" onclick="LinkClintes()" id="li-Clintes">
+        <a href="#"><span class="icon"><i class="far fa-user"></i>
+        </span><span class="text">Clintes</span></a></li>
+    <li class="list" onclick="LinkPages()" id="li-Pages">
+        <a href="#"><span class="icon"><i class="far fa-folder-open"></i></span><span class="text">Pages</span></a></li>
+    <li class="list active" onclick="LinkHome()" id="li-Home">
+        <a href="#"><span class="icon"><i class="la la-home"></i></span><span class="text">Home</span></a></li>
+    <li class="list" onclick="LinkPayments()" id="li-Payments">
+        <a href="#"><span class="icon"><i class="la la-money"></i></span><span class="text">payments</span></a></li>
+    <li class="list" onclick="LinkSettings()" id="li-Settings">
+        <a href="#"><span class="icon"><i class="la la-gear"></i></span><span class="text">Settings</span></a></li>
+    <div class="indicator"></div>
+</ul></div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/chart.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/Clintes.js"></script>
+    <script src="assets/js/NavBar.js"></script>
+    <script src="assets/js/Pages.js"></script>
+    <script src="assets/js/Payment.js"></script>
+    <script src="assets/js/Boost.js"></script>
+</body>
+
+</html>
