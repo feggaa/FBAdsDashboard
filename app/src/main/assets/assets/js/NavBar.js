@@ -17,24 +17,34 @@ function activeLink(){
 
 list.forEach((item) => item.addEventListener('click',activeLink))
 
-
+LinkHome()
 function LinkClintes() {
     let elm = document.getElementById(this.id+"-Page")
+    $("#selectedClinte").hide();
+    $("#mainClintes").show();
     $("#mainPage").animate({scrollLeft: 0});
 }
 function LinkPages() {
     let elm = document.getElementById(this.id+"-Page")
+    $("#selectedClinte").hide();
+    $("#mainClintes").show();
     $("#mainPage").animate({scrollLeft: 360});
 }
 function LinkHome() {
     let elm = document.getElementById(this.id+"-Page")
+    $("#selectedClinte").hide();
+    $("#mainClintes").show();
     $("#mainPage").animate({scrollLeft: 360*2});
 }
 function LinkPayments() {
     let elm = document.getElementById(this.id+"-Page")
+    $("#selectedClinte").hide();
+    $("#mainClintes").show();
     $("#mainPage").animate({scrollLeft: 360*3});
 }
 function LinkSettings() {
     let elm = document.getElementById(this.id+"-Page")
+    $("#selectedClinte").hide();
+    $("#mainClintes").show();
     $("#mainPage").animate({scrollLeft: 360*4});
 }

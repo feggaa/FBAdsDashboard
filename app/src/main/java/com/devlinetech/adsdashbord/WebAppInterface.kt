@@ -50,7 +50,18 @@ class WebAppInterface(private val mContext: MainActivity,webView: WebView, dbMan
             webView.evaluateJavascript("AddToBoostList('$id','$page','$Doller','$dinar','$date','$Time','$State');", null)
         }
     }
-
+    @JavascriptInterface
+    fun AddToBoostToListClinte(id : Int, Start : String,end : String,amount : String){
+        webView.post {
+            webView.evaluateJavascript("AddToBoostToListClinte('$id','$Start','$end','$amount');", null)
+        }
+    }
+    @JavascriptInterface
+    fun AddToPageToListClinte(PageID : String,PageName : String,srcImag : String){
+        webView.post {
+            webView.evaluateJavascript("AddToPageToListClinte('$PageID','$PageName','$srcImag');", null)
+        }
+    }
 
     @SuppressLint("NewApi")
     @JavascriptInterface
@@ -82,7 +93,7 @@ class WebAppInterface(private val mContext: MainActivity,webView: WebView, dbMan
             //val cursor = dbManager.SQL("SELECT * FROM BL;")
             val cursor = dbManager.SQL("SELECT Boost.ID,Boost.Doller,Boost.Budget,Boost.Date,Boost.Time,Boost.AdminID,Pages.pName \n" +
                     "FROM Boost\n" +
-                    "INNER JOIN Pages ON Boost.AdminID = Pages.ID")
+                    "INNER JOIN Pages ON Boost.AdminID = Pages.ID ORDER BY Boost.ID DESC")
             if (cursor!!.count == 0) return
             cursor!!.moveToFirst()
             do{
@@ -209,12 +220,14 @@ class WebAppInterface(private val mContext: MainActivity,webView: WebView, dbMan
 
     @SuppressLint("Range")
     @JavascriptInterface
-    fun LoadClintes(){
+    fun LoadClintes(searchClinte : String = ""){
         val dbManager = DbManager(mContext)
 
         try {
             //val cursor = dbManager.SQL("SELECT * FROM BL;")
-            val cursor = dbManager.SQL("SELECT * FROM Clintes;")
+            val cursor = dbManager.SQL("SELECT * FROM Clintes WHERE cName Like '%$searchClinte%';")
+
+
             //val cursor = dbManager.SQL("SELECT Clintes.ID,Clintes.cName,Clintes.Phone,Clintes.Address,Clintes.Credit,Clintes.Contact \n" +
               //      "FROM Payments\n" +
                 //    "INNER JOIN Payments ON Payments.AdminID = Clintes.ID")

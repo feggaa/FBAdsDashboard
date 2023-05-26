@@ -18,7 +18,10 @@ function SaveNewPayament() {
     let ClinteID = $("#btSelectClinte-Pay").attr("data-adminid")
     if(ClinteID == 0) return Android.Toast("You must specify the owner of the page")
     let Amount   = $("#PayAmount").val()
-    Android.SaveNewPayament(ClinteID,Amount,Admin)
+    if(Amount == "") return Android.Toast("You must enter the amount")
+    try {
+        Android.SaveNewPayament(ClinteID,Amount,Admin)
+    } catch (error) {}
     $("#mAddPayment").modal('hide');
 }
 
@@ -37,4 +40,6 @@ function AddToPaymentsList(id,amount,clinteID,admin,date,time) {
     $("#PaymentListID").append(chtml)
 }
 $("#PaymentListID").empty()
-Android.LoadPayments()
+try {
+    Android.LoadPayments()
+} catch (error) {}

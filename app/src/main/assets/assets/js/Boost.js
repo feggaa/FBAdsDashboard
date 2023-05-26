@@ -37,8 +37,13 @@ function SaveNewBoost(){
     if(PageID == 0) return Android.Toast("You must specify the owner of the page")
     let BudgetDoller = $("#BudgetDoller").val()
     let Budget = $("#Budget").val()
+    if(Budget == 0 || Budget == "") return Android.Toast("You must enter the budget")
     let DateEnd   = $("#DateEnd").val()
-    Android.SaveNewBoost(ClinteID,PageID,Budget,DateEnd,parseInt(BudgetDoller),Page)
+    if(DateEnd == "") return Android.Toast("You must enter the date end")
+    
+    try {
+        Android.SaveNewBoost(ClinteID,PageID,Budget,DateEnd,parseInt(BudgetDoller),Page)
+    } catch (error) {}
     $("#mAddBoost").modal('hide');
 }
 
@@ -52,11 +57,12 @@ function AddToBoostList(id,page,doller,dinar,date,time,state){
     $("#TotalDollar").text(TotalBoostDollar+"$")
     
     $(function(){
-        let chart = document.querySelector('canvas').chart;
+        let chart = document.querySelector('#HomeChart canvas').chart;
         chart.data.datasets[0].data = chartMap
         chart.data.labels = chartMap
         chart.update();
     })
+    
 
    // ListPayments.push({id : id,amount : amount,clinteID : clinteID ,admin : admin,date : date,time : time})
     let chtml = `<li class="list-group-item" style="background: #292929;margin-bottom: 5px;display: flex;border-radius: 5px;"><i class="fa fa-bullhorn d-flex justify-content-center align-items-center" style="color: rgb(5,130,255);font-size: 24px;"></i>
@@ -72,4 +78,8 @@ function AddToBoostList(id,page,doller,dinar,date,time,state){
 }
 
 $("#BoostList").empty()
-Android.LoadActivities()
+$(function(){
+    try {
+        Android.LoadActivities()
+    } catch (error) {}
+})

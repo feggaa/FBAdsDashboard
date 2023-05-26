@@ -31,9 +31,12 @@ function SaveNewPage() {
     let Pagelink    = $("#addPage-Link").val()
     if(Pagelink == "") return Android.Toast("The page link must be entered")
     let PageName    = $("#addPage-Name").val()
+    if(PageName == "") return Android.Toast("You must enter the name page")
     let PageLogo =   $("#Page-Logo").attr("src")
-
-    Android.SaveNewPage(PageName,Pagelink,PageLogo,PageAdmin,PageAdminID)
+    try {
+        Android.SaveNewPage(PageName,Pagelink,PageLogo,PageAdmin,PageAdminID)
+    } catch (error) {}
+    
     $("#mAddPage").modal('hide');
 }
 
@@ -56,4 +59,7 @@ function AddToPagesList(id,name,link,logo,like,admin,adminID) {
 }
 
 $("#PageListID").empty()
-Android.LoadPages()
+
+try {
+    Android.LoadPages()
+} catch (error) {}

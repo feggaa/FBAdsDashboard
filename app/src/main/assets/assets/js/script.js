@@ -2,6 +2,13 @@ let ListClintes   = []
 let ListPages     = []
 let ListPayments  = []
 let ListBoost     = []
+function getOffset(el) {
+  const rect = el.getBoundingClientRect();
+  return {
+    left: rect.left + window.scrollX,
+    top: rect.top + window.scrollY
+  };
+}
 $(function(){   
     $("input").hover(
     function(event) {
@@ -26,6 +33,7 @@ $(function(){
         //alert(chart.data.datasets[0].data[2])
    // });
     
+ 
 });
 // Setup isScrolling variable
 var isScrolling;
